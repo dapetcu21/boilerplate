@@ -23,7 +23,7 @@ export default class TransactionsList extends Component {
         >
           <span>{type === 'expense' ? '-' : '+'}{value}</span>
         </div>
-      )}
+      ).toJS()}
     </div>;
   }
 }
