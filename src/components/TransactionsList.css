@@ -1,0 +1,11 @@
+:local .transaction {
+  margin: 0.5em 1em;
+}
+
+:local .expense {
+  color: red;
+}
+
+:local .income {
+  color: green;
+}

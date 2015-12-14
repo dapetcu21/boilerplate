@@ -1,1 +1,1 @@
-export { default as sampleCounter } from './sampleCounter';
+export { default as transactions } from './transactions';
