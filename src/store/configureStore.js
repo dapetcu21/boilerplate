@@ -5,7 +5,7 @@ import * as reducers from '../reducers'
 
 const createStoreWithMiddleware = compose(
   applyMiddleware(thunkMiddleware, promiseMiddleware),
-  __DEV__ && window.devToolsExtension ? window.devToolsExtension() : f => f
+  __DEV__ && window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
 )(createStore)
 
 const rootReducer = combineReducers(reducers)
