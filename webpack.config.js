@@ -5,6 +5,7 @@ const autoprefixer = require('autoprefixer')
 
 const debug = process.env.NODE_ENV !== 'production'
 const localIdentName = debug ? 'localIdentName=[name]__[local]___[hash:base64:5]' : 'localIdentName=[hash:base64:5]'
+const cssSourceMap = process.env.CSS_SOURCEMAPS ? 'sourceMap&' : ''
 
 const config = {
   entry: {
@@ -20,9 +21,9 @@ const config = {
     loaders: [
       { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.json$/, loader: 'json' },
-      { test: /\.scss$/, loader: ExtractText.extract('style', `css?sourceMap&${localIdentName}!postcss!sass`) },
-      { test: /\.sass$/, loader: ExtractText.extract('style', `css?sourceMap&${localIdentName}!postcss!sass?indentedSyntax=true`) },
-      { test: /\.css$/, loader: ExtractText.extract('style', `css?sourceMap&${localIdentName}!postcss`) },
+      { test: /\.scss$/, loader: ExtractText.extract('style', `css?${cssSourceMap}${localIdentName}!postcss!sass`) },
+      { test: /\.sass$/, loader: ExtractText.extract('style', `css?${cssSourceMap}${localIdentName}!postcss!sass?indentedSyntax=true`) },
+      { test: /\.css$/, loader: ExtractText.extract('style', `css?${cssSourceMap}${localIdentName}!postcss`) },
       { test: /\.(png|jpg|woff2?|ttf|eot|svg)(\?|$)/, loader: 'file' }
     ]
   },

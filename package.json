@@ -52,7 +52,8 @@
     "standard": "^8.6.0"
   },
   "scripts": {
-    "start": "PUBLIC_PATH=\"http://localhost:8080/\" webpack-dev-server --inline --hot --content-base build",
+    "start": "webpack-dev-server --inline --hot --host 0.0.0.0 --content-base build",
+    "start-sourcemaps": "PUBLIC_PATH=\"http://localhost:8080/\" CSS_SOURCEMAPS=1 webpack-dev-server --inline --hot --content-base build",
     "build": "NODE_ENV=production webpack",
     "postinstall": "test \"$NODE_ENV\" = production && npm run build || true"
   },
